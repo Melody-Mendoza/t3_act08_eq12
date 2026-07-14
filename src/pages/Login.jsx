@@ -2,7 +2,7 @@ import "../styles/Login.css";
 import {usarLogin} from "../hooks/login.js"
 import { UserRound } from "lucide-react";
 
-function Login() {
+function Login({onLogin}) {
     const {
         userName,
         SetUserName,
@@ -10,7 +10,7 @@ function Login() {
         SetContraseña,
         error,
         handleSubmit
-    } = usarLogin();
+    } = usarLogin(onLogin);
     return (
         <div className="login-container">
             <div className="login-card">
@@ -22,7 +22,9 @@ function Login() {
                     <h1>ControlSys</h1>
                     <p>Inicia sesión para continuar</p>
                     <form onSubmit={handleSubmit}>
+
                         {error && <p className="error">{error}</p> }
+                        
                         <div className="input-group">
                             <label>Usuario</label>
                             <input

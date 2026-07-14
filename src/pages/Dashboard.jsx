@@ -2,11 +2,14 @@ import { useState } from "react";
 
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
+
 import Home from "../views/Home";
 import Products from "../views/Products";
 import Settings from "../views/Settings";
+
 import "../styles/Dashboard.css";
-function Dashboard() {
+
+function Dashboard({user, setUser}) {
     const [menuAbierto, setMenuAbierto] = useState(true);
     const [vistaActiva, setVistaActiva] = useState("home");
 
@@ -22,6 +25,8 @@ function Dashboard() {
                 <Navbar
                     menuAbierto={menuAbierto}
                     setMenuAbierto={setMenuAbierto}
+                    user = {user}
+                    setUser={setUser}
                 />
                 <main className="main-content">
                     {vistaActiva === "home" && <Home />}

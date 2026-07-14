@@ -123,6 +123,7 @@
     box-shadow: 0 10px 40px rgba(80, 128, 142, 0.12);
     animation: dropdown 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
     transform-origin: top right;
+    z-index: 100;
 }
 
 .dropdown-menu button {

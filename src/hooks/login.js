@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { loginRequest } from "../services/api";
 
-export const usarLogin = () => 
+export const usarLogin = (onLogin) => 
 {
     const [userName, SetUserName] = useState ("");
     const [contraseña, SetContraseña] = useState ("");
@@ -24,6 +24,7 @@ export const usarLogin = () =>
             const DataUsuario = await loginRequest(userName, contraseña);
 
             console.log ("Login exitoso: ", DataUsuario);
+            onLogin(DataUsuario);
         }
         catch (err)
         {

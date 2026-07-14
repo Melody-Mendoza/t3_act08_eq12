@@ -1,29 +1,40 @@
 import "../styles/ProductFilters.css";
 import { Search } from "lucide-react";
 
-function ProductFilters() {
+
+function ProductFilters({ limite, setLimite, busqueda, setBusqueda, categoria, setCategoria, listaCategorias = [] }) {
     return (
         <div className="product-filters">
             <div className="search-box">
                 <Search size={18} strokeWidth={2.5} />
                 <input
-                    type="text" placeholder="Buscar producto..."
+                    type="text" 
+                    placeholder="Buscar producto..."
+                    value={busqueda}
+                    onChange={(e) => setBusqueda(e.target.value)}
                 />
             </div>
-            <select>
-                <option>Todas las categorías</option>
-                <option>Beauty</option>
-                <option>Fragrances</option>
-                <option>Furniture</option>
-                <option>Groceries</option>
+            <select
+                value={categoria}
+                onChange={(e) => setCategoria(e.target.value)}
+            >
+                <option value="Todas las categorías">Todas las categorías</option>
+                {listaCategorias.map((cat, index) => (
+                    <option key={index} value={cat.slug || cat}>
+                        {cat.name || cat}
+                    </option>
+                ))}
             </select>
             <div className="limit-box">
                 <label>Mostrar</label>
-                <select>
-                    <option>10</option>
-                    <option>20</option>
-                    <option>40</option>
-                    <option>50</option>
+                <select
+                    value={limite} 
+                    onChange={(e) => setLimite(Number(e.target.value))}
+                >
+                    <option value={10}>10</option>
+                    <option value={14}>14</option>
+                    <option value={18}>18</option>
+                    <option value={22}>22</option>
                 </select>
             </div>
         </div>

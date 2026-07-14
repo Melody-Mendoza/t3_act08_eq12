@@ -1,10 +1,19 @@
 import { useState } from "react";
 import "../styles/Navbar.css";
 
-import {CircleUserRound,LogOut,Menu,ChevronDown} from "lucide-react";
+import {
+    CircleUserRound,
+    LogOut,
+    Menu,
+    ChevronDown
+} from "lucide-react";
 
-function Navbar({ menuAbierto, setMenuAbierto }) {
+function Navbar({ menuAbierto, setMenuAbierto, user, setUser}) {
     const [menuUsuario, setMenuUsuario] = useState(false);
+
+    const handleLogout = () => {
+        setUser (null);
+    };
 
     return (
         <header className="navbar">
@@ -28,8 +37,8 @@ function Navbar({ menuAbierto, setMenuAbierto }) {
                     <CircleUserRound size={40} strokeWidth={1.5} />
 
                     <div className="user-info">
-                        <h4>Nombre del usuario</h4>
-                        <span>correo@ejemplo.com</span>
+                        <h4>{user ? `${user.firstName} ${user.lastName}` : "Cargando..."}</h4>
+                        <span>{user ? user.email : "Cargando..."}</span>
                     </div>
 
                     <ChevronDown size={18} className="chevron-icon" />
@@ -37,7 +46,7 @@ function Navbar({ menuAbierto, setMenuAbierto }) {
 
                 {menuUsuario && (
                     <div className="dropdown-menu">
-                        <button>
+                        <button onClick={handleLogout}>
                             <LogOut size={18} />
                             <span>Cerrar sesión</span>
                         </button>
