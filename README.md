@@ -11,7 +11,7 @@ Este proyecto es una aplicación web (Frontend) desarrollada en React que permit
   1. Mendez Garcia Angel de Jesus 
   2. Mendoza Jimenez Melody Nathalie
 * **API utilizada para la tabla de datos:** [DummyJSON - Products API](https://dummyjson.com/docs/products)
-
+**Enlace al proyecto desplegado (VPS):** http://68.183.115.226/t3_act08_eq12
 ---
 
 ## División del Trabajo
