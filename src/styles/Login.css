@@ -109,8 +109,10 @@ form {
 .input-group input:focus {
     outline: none;
     border-color: #50808E;
-    box-shadow: 0 0 0 5px rgba(28, 137, 170, 0.12);
+    box-shadow: 0 0 0 5px rgba(23, 160, 202, 0.12);
 }
+
+
 
 button {
     width: 180px;

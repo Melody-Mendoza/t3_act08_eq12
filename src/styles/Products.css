@@ -1,0 +1,13 @@
+.products{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.products h1{
+    color:#2F3B44;
+}
+
+.products p{
+    color:#5A5A5A;
+}

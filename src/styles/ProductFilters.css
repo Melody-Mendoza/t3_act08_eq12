@@ -1,0 +1,90 @@
+.product-filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+}
+
+.search-box {
+    flex: 1;
+    min-width: 320px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--bg-white);
+    border: 2px solid transparent;
+    border-radius: 16px;
+    padding: 0 24px;
+    height: 58px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 15px rgba(80, 128, 142, 0.05);
+}
+
+.search-box:focus-within {
+    border-color: var(--color-celadon);
+    box-shadow: 0 8px 25px rgba(163, 201, 168, 0.2);
+    transform: translateY(-2px);
+}
+
+.search-box svg {
+    color: var(--color-teal-dark);
+}
+
+.search-box input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-airforce);
+    background: transparent;
+}
+
+.search-box input::placeholder {
+    color: #A0AAB2;
+    font-weight: 500;
+}
+
+.product-filters select {
+    height: 58px;
+    border: 2px solid transparent;
+    border-radius: 16px;
+    padding: 0 24px 0 20px;
+    background: var(--bg-white);
+    color: var(--color-airforce);
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(80, 128, 142, 0.05);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2369A297' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    background-size: 16px;
+    padding-right: 50px;
+}
+
+.product-filters select:hover,
+.product-filters select:focus {
+    border-color: var(--color-celadon);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(163, 201, 168, 0.2);
+    outline: none;
+}
+
+.limit-box {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.limit-box label {
+    color: var(--color-teal-dark);
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}

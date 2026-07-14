@@ -1,0 +1,109 @@
+.table-card {
+    background: var(--bg-white);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(80, 128, 142, 0.06);
+    padding: 12px 20px;
+    border: 1px solid var(--color-bone);
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 8px;
+}
+
+thead th {
+    padding: 16px 20px;
+    text-align: left;
+    color: var(--color-airforce);
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    border-bottom: 2px solid var(--color-bone);
+}
+
+tbody td {
+    padding: 16px 20px;
+    color: var(--color-airforce);
+    font-size: 15px;
+    font-weight: 600;
+    vertical-align: middle;
+    background: var(--bg-white);
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+tbody td:first-child {
+    border-left: 1px solid transparent;
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
+}
+
+tbody td:last-child {
+    border-right: 1px solid transparent;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+tbody tr {
+    transition: transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+tbody tr:hover td {
+    background: var(--color-bone);
+    border-color: var(--color-celadon);
+}
+
+tbody tr:hover {
+    transform: scale(1.01);
+}
+
+tbody img {
+    width: 52px;
+    height: 52px;
+    object-fit: cover;
+    border-radius: 14px;
+    border: 2px solid var(--bg-white);
+    box-shadow: 0 4px 10px rgba(80, 128, 142, 0.15);
+}
+
+.edit, .delete {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.edit {
+    background: rgba(105, 162, 151, 0.15);
+    color: var(--color-teal-dark);
+}
+
+.edit:hover {
+    background: var(--color-teal-dark);
+    color: var(--bg-white);
+    transform: translateY(-4px) rotate(-5deg);
+    box-shadow: 0 8px 15px rgba(105, 162, 151, 0.3);
+}
+
+.delete {
+    background: rgba(229, 115, 115, 0.15);
+    color: #E57373;
+}
+
+.delete:hover {
+    background: #E57373;
+    color: var(--bg-white);
+    transform: translateY(-4px) rotate(5deg);
+    box-shadow: 0 8px 15px rgba(229, 115, 115, 0.3);
+}

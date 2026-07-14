@@ -1,0 +1,137 @@
+.sidebar {
+    width: 260px;
+    background: linear-gradient(165deg, var(--color-teal-dark) 0%, var(--color-airforce) 100%);
+    color: var(--bg-white);
+    display: flex;
+    flex-direction: column;
+    transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 4px 0 24px rgba(80, 128, 142, 0.15);
+    height: 100vh;
+    white-space: nowrap;
+    overflow-x: hidden;
+}
+
+.sidebar-cerrado {
+    width: 0;
+    box-shadow: none;
+}
+
+
+.sidebar-header {
+    height: 76px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 24px;
+}
+
+
+.menu-button {
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--bg-white);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+}
+
+.menu-button:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: scale(1.05);
+}
+
+
+.sidebar-brand {
+    padding: 10px 28px 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.sidebar-brand h2 {
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin: 0;
+    color: var(--bg-white);
+}
+
+.sidebar-brand p {
+    margin-top: 6px;
+    font-size: 13px;
+    color: var(--color-bone);
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 30px 18px;
+    animation: fadeIn 0.6s ease forwards;
+}
+
+
+.sidebar-menu button {
+    width: 100%;
+    border: 1px solid transparent;
+    background: transparent;
+    color: var(--color-bone);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 20px;
+    border-radius: 14px;
+    transition: all 0.3s ease;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+
+.sidebar-menu button:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--bg-white);
+    transform: translateX(4px);
+}
+
+
+.sidebar-menu button.activo {
+    background: var(--bg-white);
+    color: var(--color-airforce);
+    font-weight: 700;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+.sidebar-menu svg {
+    flex-shrink: 0;
+    transition: color 0.3s ease;
+}
+
+
+.sidebar-menu button.activo svg {
+    color: var(--color-airforce);
+    stroke-width: 2.5;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
