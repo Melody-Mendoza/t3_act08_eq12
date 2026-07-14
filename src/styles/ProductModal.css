@@ -5,7 +5,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(47, 59, 68, 0.4); 
     backdrop-filter: blur(4px);
     display: flex;
     justify-content: center;
@@ -19,54 +19,62 @@
     background: white;
     width: 100%;
     max-width: 500px;
-    border-radius: 20px;
+    border-radius: 24px;
     padding: 30px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 40px rgba(80, 128, 142, 0.15); 
     animation: slideUp 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .modal-content h3 
 {
     margin-top: 0;
-    color: #333;
-    font-size: 1.5rem;
-    margin-bottom: 20px;
+    color: var(--color-airforce, #50808E);
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 25px;
 }
 
 .form-group 
 {
     display: flex;
     flex-direction: column;
-    margin-bottom: 15px;
+    margin-bottom: 18px;
 }
 
 .form-group label 
 {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #555;
-    margin-bottom: 5px;
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--color-teal-dark, #69A297);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
 }
 
 .form-group input, .form-group select 
 {
-    padding: 12px 15px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
+    padding: 14px 18px;
+    border: 2px solid var(--color-bone, #DDD8C4);
+    border-radius: 12px;
     font-size: 1rem;
     outline: none;
-    transition: border-color 0.2s;
+    color: #2F3B44;
+    transition: all 0.3s ease;
 }
 
 .form-group input:focus, .form-group select:focus 
 {
-    border-color: #50808E; 
+    border-color: var(--color-celadon, #A3C9A8);
+    box-shadow: 0 4px 15px rgba(163, 201, 168, 0.15);
+    transform: translateY(-2px);
 }
 
 .modal-actions 
 {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     gap: 15px;
     margin-top: 25px;
 }
@@ -75,27 +83,39 @@
 {
     background: transparent;
     border: none;
-    color: #666;
-    font-weight: 600;
+    color: var(--color-teal-dark, #69A297);
+    font-weight: 700;
+    font-size: 1rem;
     cursor: pointer;
-    padding: 10px 20px;
+    padding: 12px 20px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.btn-cancel:hover 
+{
+    background: rgba(221, 216, 196, 0.3); 
+    color: var(--color-airforce, #50808E);
 }
 
 .btn-save 
 {
-    background: #50808E;
+    background: linear-gradient(135deg, var(--color-airforce, #50808E), var(--color-teal-dark, #69A297));
     color: white;
     border: none;
-    border-radius: 10px;
-    padding: 10px 25px;
-    font-weight: 600;
+    border-radius: 12px;
+    padding: 8px 28px;
+    font-weight: 800;
+    font-size: 0.9rem;
     cursor: pointer;
-    transition: background 0.2s;
+    box-shadow: 0 6px 15px rgba(80, 128, 142, 0.2);
+    transition: all 0.3s ease;
 }
 
 .btn-save:hover 
 {
-    background: #3e6672;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(80, 128, 142, 0.3);
 }
 
 @keyframes fadeIn

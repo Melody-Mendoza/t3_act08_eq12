@@ -8,11 +8,11 @@ import {
     ChevronDown
 } from "lucide-react";
 
-function Navbar({ menuAbierto, setMenuAbierto, user, setUser}) {
+function Navbar({ menuAbierto, setMenuAbierto, user, setUser }) {
     const [menuUsuario, setMenuUsuario] = useState(false);
 
     const handleLogout = () => {
-        setUser (null);
+        setUser(null);
     };
 
     return (
@@ -34,7 +34,21 @@ function Navbar({ menuAbierto, setMenuAbierto, user, setUser}) {
                     className="user-button"
                     onClick={() => setMenuUsuario(!menuUsuario)}
                 >
-                    <CircleUserRound size={40} strokeWidth={1.5} />
+                    {user?.image ? (
+
+                        <img
+                            src={user.image}
+                            alt={`${user.firstName} ${user.lastName}`}
+                            className="user-avatar"
+                        />
+                    ) : (
+
+                        <CircleUserRound
+                            size={40}
+                            strokeWidth={1.5}
+                        />
+
+                    )}
 
                     <div className="user-info">
                         <h4>{user ? `${user.firstName} ${user.lastName}` : "Cargando..."}</h4>
