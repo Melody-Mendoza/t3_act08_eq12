@@ -7,9 +7,9 @@ Este proyecto es una aplicación web (Frontend) desarrollada en React que permit
 
 ## Requisitos de Evaluación (Rúbrica)
 
-* **Integrantes del equipo:** 
-  1. Angel de Jesus Mendez Garcia
-  2. 
+* **Integrantes del equipo 12:** 
+  1. Mendez Garcia Angel de Jesus 
+  2. Mendoza Jimenez Melody Nathalie
 * **API utilizada para la tabla de datos:** [DummyJSON - Products API](https://dummyjson.com/docs/products)
 
 ---
@@ -26,8 +26,16 @@ Esta sección abarca toda la lógica de negocio, el manejo de estados globales y
 * **Manejo de Archivos:** Uso de la API nativa `FileReader` de JavaScript dentro del `ProductModal` para permitir al usuario subir imágenes locales, transformarlas a Base64 y previsualizarlas en la tabla sin necesidad de un servidor de almacenamiento real.
 * **Alertas y Validaciones:** Integración y configuración de la lógica de `SweetAlert2` para interceptar acciones críticas (como eliminar) con validaciones y promesas asíncronas.
 
-### Diseño de Interfaz (UI/UX) y Maquetación (Desarrollado por Melody Mendoza)
+### Diseño de Interfaz (UI/UX) y Desarrollo Frontend (Realizado por Melody Nathalie Mendoza Jimenez)
 
+Durante el desarrollo del proyecto me encargué de toda la parte visual de la aplicación, tomando como base el mockup realizado previamente en Figma y adaptándolo a React.
+
+- **Diseño de la interfaz:** Creación del diseño del sistema manteniendo una apariencia moderna, limpia y profesional, utilizando una paleta de colores en tonos verde y beige para conservar una identidad visual uniforme.
+- **Construcción de componentes:** Desarrollo de los componentes visuales principales del sistema, como el Login, Sidebar, Navbar, Home, Settings, ProductHeader, ProductFilters, DataTable, Pagination y los distintos modales, procurando que fueran reutilizables y fáciles de mantener.
+- **Maquetación con React y CSS:** Implementación de toda la estructura visual utilizando componentes de React y hojas de estilo CSS independientes para mantener un proyecto organizado.
+- **Diseño responsivo y experiencia de usuario:** Organización de los elementos de la interfaz buscando una distribución clara, espacios equilibrados y una navegación intuitiva para facilitar el uso del sistema.
+- **Personalización de la interfaz:** Integración de la librería **Lucide React** para utilizar iconografía moderna y consistente, además de incorporar efectos visuales, transiciones suaves, sombras, estados *hover* y menús desplegables que mejoran la experiencia del usuario.
+- **Preparación para la integración de la lógica:** Se dejó lista toda la estructura visual de la aplicación para facilitar la integración de la autenticación con DummyJSON, el consumo de la API de productos, los filtros, la paginación y las operaciones CRUD desarrolladas posteriormente.
 
 ---
 
@@ -39,3 +47,11 @@ Esta sección abarca toda la lógica de negocio, el manejo de estados globales y
 * **Lucide React** - Set de iconos vectoriales ligeros.
 
 ---
+## Conclusión
+
+El desarrollo de **ControlSys** permitió aplicar los conocimientos adquiridos durante el curso de Programación Web mediante la construcción de una aplicación desarrollada en React. A lo largo de la actividad se trabajó con componentes reutilizables, consumo de APIs, manejo de estados, diseño de interfaces y operaciones CRUD, integrando tanto la parte visual como la lógica de funcionamiento.
+
+Como resultado, se obtuvo un sistema capaz de simular un entorno real de administración de productos, utilizando tecnologías actuales y siguiendo buenas prácticas de desarrollo, lo que fortaleció nuestras habilidades tanto en React como en el consumo de servicios web y la organización de proyectos Frontend.
+
+---
+
