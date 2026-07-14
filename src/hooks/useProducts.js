@@ -71,10 +71,18 @@ export const useProducts = () => {
     const eliminarProductoLocal = async (id) => {
         try 
         {
-            await deleteProduct(id);
+            try 
+            {
+                await deleteProduct(id);
+            } 
+            catch (apiError) 
+            {
+                console.warn("Aviso: Producto local eliminado de la tabla.");
+            }
             setProductos(productos.filter(prod => prod.id !== id));
             setTotal(total - 1);
-            return true; 
+            
+            return true;
         } 
         catch (error) 
         {
@@ -87,6 +95,7 @@ export const useProducts = () => {
         try 
         {
             const productoCreado = await createProduct(datosNuevoProducto);
+            productoCreado.id = Date.now();
             setProductos([productoCreado, ...productos]);
             setTotal(total + 1);
             return true; 
@@ -101,10 +110,19 @@ export const useProducts = () => {
     const editarProductoLocal = async (id, datosActualizados) => {
         try 
         {
-            await updateProduct(id, datosActualizados);
+            try 
+            {
+                await updateProduct(id, datosActualizados);
+            } 
+            catch (apiError) 
+            {
+                console.warn("Aviso: Producto local modificado.");
+            }
+        
             setProductos(productos.map(prod => 
                 prod.id === id ? { ...prod, ...datosActualizados } : prod
             ));
+            
             return true;
         } 
         catch (error) 

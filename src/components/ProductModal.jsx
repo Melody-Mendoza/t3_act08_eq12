@@ -8,6 +8,8 @@ function ProductModal({ isOpen, onClose, onSave, listaCategorias, productoAEdita
     const [category, setCategory] = useState("");
     const [stock, setStock] = useState("");
 
+    const [imagen, setImagen] = useState(null);
+
     useEffect(() => {
         if (productoAEditar) 
         {
@@ -15,16 +17,31 @@ function ProductModal({ isOpen, onClose, onSave, listaCategorias, productoAEdita
             setPrice(productoAEditar.price);
             setCategory(productoAEditar.category);
             setStock(productoAEditar.stock);
+            setImagen(productoAEditar.thumbnail || null);
         } 
         else 
         {
             setTitle(""); setPrice(""); setCategory(""); setStock("");
+            setImagen(null);
         }
     }, [productoAEditar, isOpen]);
+
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setImagen(reader.result);
+            };
+            reader.readAsDataURL(file);
+        }
+    };
 
     if (!isOpen) return null;
 
     const handleSubmit = async (e) => {
+        e.preventDefault();
+
         if (!title || !price || !category || !stock) 
         {
             Swal.fire("Error", "Por favor completa todos los campos", "warning");
@@ -37,7 +54,7 @@ function ProductModal({ isOpen, onClose, onSave, listaCategorias, productoAEdita
             price: parseFloat(price),
             category: category,
             stock: parseInt(stock),
-            thumbnail: "https://placehold.co/80x80" 
+            thumbnail: imagen ? imagen : (productoAEditar ? productoAEditar.thumbnail : "https://placehold.co/80x80")
         };
 
         let exito = false;
@@ -106,6 +123,16 @@ function ProductModal({ isOpen, onClose, onSave, listaCategorias, productoAEdita
                             <label>Stock</label>
                             <input type="number" value={stock} onChange={(e) => setStock(e.target.value)} placeholder="0" />
                         </div>
+                    </div>
+
+                    <div className="form-group">
+                        <label>Imagen del producto (Opcional)</label>
+                        <input 
+                            type="file" 
+                            accept="image/*" 
+                            onChange={handleImageChange} 
+                        />
+                        {imagen && <img src={imagen} alt="Vista previa" style={{marginTop: '10px', width: '50px', borderRadius: '8px'}} />}
                     </div>
 
                     <div className="modal-actions">
