@@ -11,16 +11,14 @@ function ProductModal({ isOpen, onClose, onSave, listaCategorias, productoAEdita
     const [imagen, setImagen] = useState(null);
 
     useEffect(() => {
-        if (productoAEditar) 
-        {
+        if (productoAEditar) {
             setTitle(productoAEditar.title);
             setPrice(productoAEditar.price);
             setCategory(productoAEditar.category);
             setStock(productoAEditar.stock);
             setImagen(productoAEditar.thumbnail || null);
-        } 
-        else 
-        {
+        }
+        else {
             setTitle(""); setPrice(""); setCategory(""); setStock("");
             setImagen(null);
         }
@@ -42,13 +40,12 @@ function ProductModal({ isOpen, onClose, onSave, listaCategorias, productoAEdita
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (!title || !price || !category || !stock) 
-        {
+        if (!title || !price || !category || !stock) {
             Swal.fire("Error", "Por favor completa todos los campos", "warning");
             return;
         }
 
-        const datosProducto = 
+        const datosProducto =
         {
             title: title,
             price: parseFloat(price),
@@ -59,22 +56,18 @@ function ProductModal({ isOpen, onClose, onSave, listaCategorias, productoAEdita
 
         let exito = false;
 
-        if (productoAEditar) 
-        {
+        if (productoAEditar) {
             exito = await onEdit(productoAEditar.id, datosProducto);
-        } 
-        else 
-        {
+        }
+        else {
             exito = await onSave(datosProducto);
         }
 
-        if (exito) 
-        {
+        if (exito) {
             Swal.fire("¡Éxito!", `Producto ${productoAEditar ? 'actualizado' : 'agregado'} correctamente`, "success");
             onClose();
-        } 
-        else 
-        {
+        }
+        else {
             Swal.fire("Error", "No se pudo procesar la solicitud", "error");
         }
     };
@@ -92,11 +85,11 @@ function ProductModal({ isOpen, onClose, onSave, listaCategorias, productoAEdita
 
                     <div className="form-group">
                         <label>Categoría</label>
-                        <select 
-                            value={category} 
+                        <select
+                            value={category}
                             onChange={(e) => setCategory(e.target.value)}>
 
-                            <option 
+                            <option
                                 value="">Selecciona una categoría...
                             </option>
 
@@ -108,33 +101,21 @@ function ProductModal({ isOpen, onClose, onSave, listaCategorias, productoAEdita
                         </select>
                     </div>
 
-                    <div style={{display: "flex", gap: "15px"}}>
-                        <div className="form-group" style={{flex: 1}}>
+                    <div className="form-row">
+                        <div className="form-group">
                             <label>Precio ($)</label>
-                            <input 
-                                type="number" 
-                                step="0.01" 
-                                value={price} 
-                                onChange={(e) => setPrice(e.target.value)} 
-                                placeholder="0.00"
-                            />
+                            <input type="number" step="0.01" value={price} onChange={(e) => setPrice(e.target.value)} placeholder="0.00" className="input-especial" />
                         </div>
-                        <div className="form-group" style={{flex: 1}}>
+                        <div className="form-group">
                             <label>Stock</label>
-                            <input type="number" value={stock} onChange={(e) => setStock(e.target.value)} placeholder="0" />
+                            <input type="number" value={stock} onChange={(e) => setStock(e.target.value)} placeholder="0" className="input-especial" />
                         </div>
                     </div>
-
                     <div className="form-group">
                         <label>Imagen del producto (Opcional)</label>
-                        <input 
-                            type="file" 
-                            accept="image/*" 
-                            onChange={handleImageChange} 
-                        />
-                        {imagen && <img src={imagen} alt="Vista previa" style={{marginTop: '10px', width: '50px', borderRadius: '8px'}} />}
+                        <input type="file" accept="image/*" onChange={handleImageChange} />
+                        {imagen && <img src={imagen} alt="Vista previa" style={{ marginTop: '10px', width: '50px', borderRadius: '8px' }} />}
                     </div>
-
                     <div className="modal-actions">
                         <button type="button" className="btn-cancel" onClick={onClose}>Cancelar</button>
                         <button type="submit" className="btn-save">{productoAEditar ? "Actualizar Cambios" : "Guardar Producto"}</button>

@@ -5,8 +5,13 @@
     font-family: 'Segoe UI', sans-serif;
 }
 
-body {
-    background: #DDD8C4;
+body{
+
+    background:
+    radial-gradient(circle at top left,#A3C9A855 0%,transparent 30%),
+    radial-gradient(circle at bottom right,#50808E30 0%,transparent 35%),
+    linear-gradient(135deg,#DDD8C4,#ECE7D6);
+
 }
 
 .login-container {

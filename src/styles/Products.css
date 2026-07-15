@@ -11,3 +11,9 @@
 .products p{
     color:#5A5A5A;
 }
+
+@media (max-width:768px){
+    .table-container{
+        overflow-x:auto;
+    }
+}
