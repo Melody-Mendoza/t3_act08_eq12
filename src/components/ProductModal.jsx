@@ -54,21 +54,47 @@ function ProductModal({ isOpen, onClose, onSave, listaCategorias, productoAEdita
             thumbnail: imagen ? imagen : (productoAEditar ? productoAEditar.thumbnail : "https://placehold.co/80x80")
         };
 
-        let exito = false;
-
-        if (productoAEditar) {
-            exito = await onEdit(productoAEditar.id, datosProducto);
-        }
-        else {
-            exito = await onSave(datosProducto);
-        }
-
-        if (exito) {
-            Swal.fire("¡Éxito!", `Producto ${productoAEditar ? 'actualizado' : 'agregado'} correctamente`, "success");
-            onClose();
-        }
-        else {
-            Swal.fire("Error", "No se pudo procesar la solicitud", "error");
+        if (productoAEditar) 
+        {
+            Swal.fire({
+                title: '¿Estás seguro?',
+                text: `¿Deseas modificar el producto: ${productoAEditar.title}?`,
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6', 
+                cancelButtonColor: '#9e1d1d', 
+                confirmButtonText: 'Sí, modificar',
+                cancelButtonText: 'Cancelar'
+            }).then(async (result) => {
+                if (result.isConfirmed) 
+                {
+                    const exito = await onEdit(productoAEditar.id, datosProducto);
+                    
+                    if (exito) 
+                    {
+                        Swal.fire("¡Éxito!", "Producto actualizado correctamente", "success");
+                        onClose();
+                    } 
+                    else 
+                    {
+                        Swal.fire("Error", "No se pudo actualizar el producto", "error");
+                    }
+                }
+            });
+        } 
+        else 
+        {
+            const exito = await onSave(datosProducto);
+            
+            if (exito) 
+            {
+                Swal.fire("¡Éxito!", "Producto agregado correctamente", "success");
+                onClose();
+            } 
+            else 
+            {
+                Swal.fire("Error", "No se pudo procesar la solicitud", "error");
+            }
         }
     };
 
